@@ -86,28 +86,37 @@ if ($order) {
                             <p style="margin: 0; font-weight: 600;"><?php echo htmlspecialchars($item['name']); ?></p>
                             <p style="margin: 5px 0 0 0; color: #7F8C8D; font-size: 0.9rem;">Qty: <?php echo $item['quantity']; ?></p>
                         </div>
-                        <p style="margin: 0; font-weight: 600;">$<?php echo number_format($item['subtotal'], 2); ?></p>
+                        <p style="margin: 0; font-weight: 600;"><?php echo number_format($item['subtotal'], 0); ?> CFA</p>
                     </div>
                     <?php endforeach; ?>
 
                     <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ECF0F1;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Subtotal:</span>
-                            <span>$<?php echo number_format($order['total_amount'] - $order['tax'] - $order['shipping_cost'], 2); ?></span>
+                            <span><?php echo number_format($order['total_amount'] - $order['tax'] - $order['shipping_cost'], 0); ?> CFA</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Tax:</span>
-                            <span>$<?php echo number_format($order['tax'], 2); ?></span>
+                            <span><?php echo number_format($order['tax'], 0); ?> CFA</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                             <span>Shipping:</span>
-                            <span>$<?php echo number_format($order['shipping_cost'], 2); ?></span>
+                            <span><?php echo number_format($order['shipping_cost'], 0); ?> CFA</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; padding-top: 15px; border-top: 2px solid #FF8C42;">
                             <span>Total:</span>
-                            <span style="color: #FF8C42;">$<?php echo number_format($order['total_amount'], 2); ?></span>
+                            <span style="color: #FF8C42;"><?php echo number_format($order['total_amount'], 0); ?> CFA</span>
                         </div>
                     </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 12px;">
+                    <h4>Share Order via WhatsApp 📱</h4>
+                    <p style="color: #7F8C8D; margin-bottom: 15px;">Send your order details directly to our WhatsApp for quick confirmation and delivery coordination.</p>
+                    <button id="whatsappBtn" class="btn btn-primary" onclick="shareOrderViaWhatsApp(<?php echo htmlspecialchars($order['id']); ?>)" style="background: #25D366; border-color: #25D366;">
+                        🚀 Send Order via WhatsApp
+                    </button>
+                    <p style="color: #27AE60; font-size: 0.9rem; margin-top: 10px;">📞 +237674164454</p>
                 </div>
 
                 <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 12px;">
@@ -143,6 +152,7 @@ if ($order) {
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/whatsapp.js"></script>
     <script src="js/animations.js"></script>
 </body>
 </html>
