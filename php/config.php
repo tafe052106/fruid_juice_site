@@ -7,7 +7,7 @@ define('DB_NAME', 'fruid_juice_site');
 
 // Site Configuration
 define('SITE_URL', 'http://localhost/Fruid juice website/');
-define('SITE_NAME', 'Fruid Juice - Fresh & Delicious');
+define('SITE_NAME', 'Jacky Fruid Juice - Fresh & Delicious');
 define('UPLOADS_DIR', __DIR__ . '/../uploads/');
 define('UPLOADS_URL', SITE_URL . 'uploads/');
 

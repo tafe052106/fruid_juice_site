@@ -6,7 +6,7 @@ require_once 'php/functions.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Fruid Juice</title>
+    <title>Shop - Jacky Fruid Juice</title>
     <meta name="description" content="Browse our complete selection of fresh fruit juices. Filter by category, price, and popularity.">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -15,7 +15,14 @@ require_once 'php/functions.php';
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">🥤 Fruid Juice</div>
+                <div class="logo">
+                    <div class="jfj-logo">
+                        <span class="jfj-letter">J</span>
+                        <span class="jfj-letter">F</span>
+                        <span class="jfj-letter">J</span>
+                    </div>
+                    <span class="logo-text">Jacky Fruid Juice</span>
+                </div>
                 
                 <nav class="nav-menu" id="navMenu">
                     <li><a href="index.php">Home</a></li>

@@ -8,7 +8,7 @@ $profile = UserProfile::getById($_SESSION['user_id']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Account - Fruid Juice</title>
+    <title>My Account - Jacky Fruid Juice</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,7 +16,14 @@ $profile = UserProfile::getById($_SESSION['user_id']);
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">🥤 Fruid Juice</div>
+                <div class="logo">
+                    <div class="jfj-logo">
+                        <span class="jfj-letter">J</span>
+                        <span class="jfj-letter">F</span>
+                        <span class="jfj-letter">J</span>
+                    </div>
+                    <span class="logo-text">Jacky Fruid Juice</span>
+                </div>
                 <nav class="nav-menu" id="navMenu">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="products.php">Shop</a></li>

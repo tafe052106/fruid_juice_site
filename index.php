@@ -6,8 +6,8 @@ require_once 'php/functions.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fruid Juice - Fresh & Delicious - Premium Fruit Juices Online</title>
-    <meta name="description" content="Fresh, delicious premium fruit juices delivered to your door. Explore citrus, berry, tropical, and mixed fruit juices from Fruid Juice.">
+    <title>Jacky Fruid Juice - Fresh & Delicious - Premium Fruit Juices Online</title>
+    <meta name="description" content="Fresh, delicious premium fruit juices delivered to your door. Explore citrus, berry, tropical, and mixed fruit juices from Jacky Fruid Juice.">
     <meta name="keywords" content="fresh juice, fruit juice, citrus juice, berry juice, tropical juice, healthy drinks, organic juice">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -16,7 +16,14 @@ require_once 'php/functions.php';
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">🥤 Fruid Juice</div>
+                <div class="logo">
+                    <div class="jfj-logo">
+                        <span class="jfj-letter">J</span>
+                        <span class="jfj-letter">F</span>
+                        <span class="jfj-letter">J</span>
+                    </div>
+                    <span class="logo-text">Jacky Fruid Juice</span>
+                </div>
                 
                 <nav class="nav-menu" id="navMenu">
                     <li><a href="#home">Home</a></li>
