@@ -17,8 +17,10 @@ define('SESSION_COOKIE_SECURE', false); // Set to true in production with HTTPS
 define('SESSION_COOKIE_HTTPONLY', true);
 
 // Payment settings
+define('CURRENCY', 'CFA'); // Currency code
+define('CURRENCY_SYMBOL', 'CFA'); // Currency symbol for display
 define('TAX_RATE', 0.08); // 8% tax
-define('SHIPPING_COST', 10.00); // Standard shipping
+define('SHIPPING_COST', 6000); // Standard shipping in CFA
 
 // Security settings
 define('PASSWORD_MIN_LENGTH', 6);

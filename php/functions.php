@@ -471,4 +471,68 @@ class UserProfile {
         }
     }
 }
+
+// Notification Functions - WhatsApp Integration
+class Notifications {
+    const ADMIN_WHATSAPP = '+237674164454';
+    
+    public static function formatOrderForWhatsApp($order_id, $user_id) {
+        global $db;
+        
+        $order = Order::getById($order_id, $user_id);
+        if (!$order) return null;
+        
+        $user = UserProfile::getById($user_id);
+        $items = Order::getOrderItems($order_id);
+        
+        $message = "🎉 *NEW ORDER RECEIVED*\n\n";
+        $message .= "📦 Order #: " . $order['order_number'] . "\n";
+        $message .= "👤 Customer: " . ($user['first_name'] ?? 'Guest') . " " . ($user['last_name'] ?? '') . "\n";
+        $message .= "📧 Email: " . $user['email'] . "\n";
+        $message .= "📱 Phone: " . ($user['phone'] ?? 'N/A') . "\n\n";
+        $message .= "📋 *ITEMS ORDERED:*\n";
+        
+        foreach ($items as $item) {
+            $message .= "• " . $item['name'] . " x" . $item['quantity'] . " = " . number_format($item['subtotal'], 0) . " " . CURRENCY_SYMBOL . "\n";
+        }
+        
+        $message .= "\n💰 *PAYMENT SUMMARY:*\n";
+        $message .= "Subtotal: " . number_format($order['total_amount'] - $order['tax'] - $order['shipping_cost'], 0) . " " . CURRENCY_SYMBOL . "\n";
+        $message .= "Tax (8%): " . number_format($order['tax'], 0) . " " . CURRENCY_SYMBOL . "\n";
+        $message .= "Shipping: " . number_format($order['shipping_cost'], 0) . " " . CURRENCY_SYMBOL . "\n";
+        $message .= "Total: " . number_format($order['total_amount'], 0) . " " . CURRENCY_SYMBOL . "\n\n";
+        $message .= "📍 Shipping Address: " . $order['shipping_address'] . "\n";
+        $message .= "💳 Payment Method: " . $order['payment_method'] . "\n";
+        
+        return $message;
+    }
+    
+    public static function getWhatsAppShareLink($order_id, $user_id) {
+        $message = self::formatOrderForWhatsApp($order_id, $user_id);
+        
+        if (!$message) {
+            return null;
+        }
+        
+        // URL encode the message for WhatsApp Web
+        $encoded_message = urlencode($message);
+        
+        // WhatsApp API URL (opens WhatsApp Web with pre-filled message)
+        $whatsapp_link = "https://wa.me/" . str_replace('+', '', self::ADMIN_WHATSAPP) . "?text=" . $encoded_message;
+        
+        return $whatsapp_link;
+    }
+    
+    public static function sendOrderNotification($order_id, $user_id) {
+        // This generates the WhatsApp link that will be used in the frontend
+        $link = self::getWhatsAppShareLink($order_id, $user_id);
+        
+        return [
+            'success' => true,
+            'whatsapp_link' => $link,
+            'phone' => self::ADMIN_WHATSAPP,
+            'message' => 'Order notification ready to send to WhatsApp'
+        ];
+    }
+}
 ?>

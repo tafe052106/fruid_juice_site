@@ -1,6 +1,6 @@
 -- Create database
-CREATE DATABASE IF NOT EXISTS fruid_juice_db;
-USE fruid_juice_db;
+CREATE DATABASE IF NOT EXISTS fruid_juice_site;
+USE fruid_juice_site;
 
 -- Categories table
 CREATE TABLE IF NOT EXISTS categories (
@@ -131,22 +131,22 @@ CREATE TABLE IF NOT EXISTS reviews (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Insert sample categories
-INSERT INTO categories (name, description, slug) VALUES
+INSERT IGNORE INTO categories (name, description, slug) VALUES
 ('Citrus', 'Fresh citrus juices - Oranges, Lemons, Limes', 'citrus'),
 ('Berry', 'Delicious berry juices - Strawberries, Blueberries, Raspberries', 'berry'),
 ('Tropical', 'Exotic tropical juices - Mango, Pineapple, Passion Fruit', 'tropical'),
 ('Mixed Fruit', 'Wonderful blends of multiple fruits', 'mixed-fruit'),
 ('Green & Vegetable', 'Healthy green juices with vegetables', 'green-vegetable');
 
--- Insert sample products
-INSERT INTO products (category_id, name, description, price, quantity_in_stock, popularity, rating, total_reviews, seo_keywords, seo_description, featured, discount_percentage) VALUES
-(1, 'Fresh Orange Juice', 'Pure freshly squeezed orange juice packed with Vitamin C', 4.99, 150, 95, 4.8, 245, 'orange juice, fresh, vitamin c', 'Fresh squeezed orange juice', TRUE, 0),
-(1, 'Lemon Lime Blast', 'Refreshing blend of lemon and lime juices', 5.49, 120, 85, 4.6, 180, 'lemon juice, lime juice, citrus', 'Refreshing lemon lime juice blend', TRUE, 5),
-(2, 'Strawberry Delight', 'Sweet and juicy strawberry juice', 6.99, 100, 88, 4.7, 210, 'strawberry juice, red juice', 'Fresh strawberry juice drink', TRUE, 0),
-(2, 'Blueberry Power', 'Antioxidant-rich blueberry juice', 7.49, 90, 92, 4.9, 195, 'blueberry juice, antioxidants', 'Pure blueberry juice power', TRUE, 10),
-(3, 'Mango Paradise', 'Tropical mango juice sensation', 5.99, 140, 90, 4.8, 220, 'mango juice, tropical', 'Fresh mango juice', TRUE, 0),
-(3, 'Pineapple Express', 'Refreshing pineapple juice with tropical flavor', 5.49, 130, 87, 4.7, 175, 'pineapple juice, tropical', 'Fresh pineapple juice', FALSE, 0),
-(3, 'Passion Fruit Punch', 'Exotic passion fruit juice', 6.49, 85, 83, 4.5, 165, 'passion fruit juice, exotic', 'Passion fruit juice drink', FALSE, 0),
-(4, 'Berry Orange Fusion', 'Mix of berries with orange sweetness', 6.99, 110, 89, 4.7, 200, 'mixed fruit juice, berry orange', 'Berry and orange juice blend', TRUE, 0),
-(4, 'Tropical Rainbow', 'Medley of all tropical fruits', 7.99, 75, 91, 4.8, 190, 'tropical juice, mixed fruits', 'Rainbow tropical fruit juice', TRUE, 15),
-(5, 'Green Energy', 'Spinach, apple, and ginger juice blend', 5.99, 95, 86, 4.6, 170, 'green juice, detox, vegetable', 'Green detox juice blend', FALSE, 0);
+-- Insert sample products with CFA prices and image URLs
+INSERT INTO products (category_id, name, description, price, quantity_in_stock, image_url, popularity, rating, total_reviews, seo_keywords, seo_description, featured, discount_percentage) VALUES
+(1, 'Fresh Orange Juice', 'Pure freshly squeezed orange juice packed with Vitamin C', 2994, 150, 'images/products/orange-juice.jpg', 95, 4.8, 245, 'orange juice, fresh, vitamin c', 'Fresh squeezed orange juice', TRUE, 0),
+(1, 'Lemon Lime Blast', 'Refreshing blend of lemon and lime juices', 3294, 120, 'images/products/lemon-lime.jpg', 85, 4.6, 180, 'lemon juice, lime juice, citrus', 'Refreshing lemon lime juice blend', TRUE, 5),
+(2, 'Strawberry Delight', 'Sweet and juicy strawberry juice', 4194, 100, 'images/products/strawberry.jpg', 88, 4.7, 210, 'strawberry juice, red juice', 'Fresh strawberry juice drink', TRUE, 0),
+(2, 'Blueberry Power', 'Antioxidant-rich blueberry juice', 4494, 90, 'images/products/blueberry.jpg', 92, 4.9, 195, 'blueberry juice, antioxidants', 'Pure blueberry juice power', TRUE, 10),
+(3, 'Mango Paradise', 'Tropical mango juice sensation', 3594, 140, 'images/products/mango.jpg', 90, 4.8, 220, 'mango juice, tropical', 'Fresh mango juice', TRUE, 0),
+(3, 'Pineapple Express', 'Refreshing pineapple juice with tropical flavor', 3294, 130, 'images/products/pineapple.jpg', 87, 4.7, 175, 'pineapple juice, tropical', 'Fresh pineapple juice', FALSE, 0),
+(3, 'Passion Fruit Punch', 'Exotic passion fruit juice', 3894, 85, 'images/products/passion-fruit.jpg', 83, 4.5, 165, 'passion fruit juice, exotic', 'Passion fruit juice drink', FALSE, 0),
+(4, 'Berry Orange Fusion', 'Mix of berries with orange sweetness', 4194, 110, 'images/products/berry-orange.jpg', 89, 4.7, 200, 'mixed fruit juice, berry orange', 'Berry and orange juice blend', TRUE, 0),
+(4, 'Tropical Rainbow', 'Medley of all tropical fruits', 4794, 75, 'images/products/tropical-rainbow.jpg', 91, 4.8, 190, 'tropical juice, mixed fruits', 'Rainbow tropical fruit juice', TRUE, 15),
+(5, 'Green Energy', 'Spinach, apple, and ginger juice blend', 3594, 95, 'images/products/green-energy.jpg', 86, 4.6, 170, 'green juice, detox, vegetable', 'Green detox juice blend', FALSE, 0);

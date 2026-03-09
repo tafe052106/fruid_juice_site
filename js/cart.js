@@ -41,7 +41,7 @@ function displayCartItems(items) {
             <div class="cart-item-details">
                 <div>
                     <h3 class="cart-item-name">${item.name}</h3>
-                    <p class="cart-item-price">$${parseFloat(item.price).toFixed(2)}</p>
+                    <p class="cart-item-price">${parseFloat(item.price).toFixed(0)} CFA</p>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div class="quantity-control">

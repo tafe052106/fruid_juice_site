@@ -253,7 +253,7 @@ function validatePassword(password) {
 // ==================== CURRENCY FORMATTING ====================
 
 function formatCurrency(amount) {
-    return '$' + parseFloat(amount).toFixed(2);
+    return parseFloat(amount).toFixed(0) + ' CFA';
 }
 
 // ==================== LOCAL STORAGE ====================

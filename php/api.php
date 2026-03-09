@@ -25,9 +25,14 @@ try {
             );
             break;
 
-        case 'logout':
-            Auth::logout();
-            $response = ['success' => true, 'message' => 'Logged out'];
+        case 'get_whatsapp_link':
+            Auth::requireLogin = false;
+            if (!isset($_GET['order_id']) || !isset($_SESSION['user_id'])) {
+                $response = ['success' => false, 'message' => 'Missing parameters'];
+                break;
+            }
+            $notification = Notifications::sendOrderNotification($_GET['order_id'], $_SESSION['user_id']);
+            $response = array_merge(['success' => true], $notification);
             break;
 
         // Product APIs

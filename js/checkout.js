@@ -29,7 +29,7 @@ function displayCheckoutItems(items) {
                 <p style="margin: 0; font-weight: 600;">${item.name}</p>
                 <p style="margin: 5px 0 0 0; color: #7F8C8D; font-size: 0.9rem;">Qty: ${item.quantity}</p>
             </div>
-            <p style="margin: 0; font-weight: 600;">$${(parseFloat(item.price) * item.quantity).toFixed(2)}</p>
+            <p style="margin: 0; font-weight: 600;">${(parseFloat(item.price) * item.quantity).toFixed(0)} CFA</p>
         `;
         orderItems.appendChild(itemElement);
     });

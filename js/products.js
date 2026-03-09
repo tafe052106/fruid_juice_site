@@ -128,8 +128,8 @@ function displayProducts(products, container) {
                 </div>
                 <div class="product-footer">
                     <div>
-                        ${product.discount_percentage > 0 ? `<span class="original-price">$${parseFloat(product.price).toFixed(2)}</span>` : ''}
-                        <span class="product-price">$${(parseFloat(product.price) * (1 - product.discount_percentage / 100)).toFixed(2)}</span>
+                        ${product.discount_percentage > 0 ? `<span class="original-price">${parseFloat(product.price).toFixed(0)} CFA</span>` : ''}
+                        <span class="product-price">${(parseFloat(product.price) * (1 - product.discount_percentage / 100)).toFixed(0)} CFA</span>
                     </div>
                     <button class="btn btn-primary btn-small" onclick="addToCart(${product.id}, 1)">Add</button>
                 </div>
